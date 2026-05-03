@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+    <head>
+        <title>WebApp Todolist</title>
+        <meta charset="utf-8" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <!-- HTMX -->
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
+
+    <body>
+        <div class="page-container-title">
+            <p class="title">WebApp Todolist @ Club Info ENSTA Campus de Brest</p>
+        </div>
+        <div class="page-container">
+            <div class="container-column center w-20 h-100">
+                <div
+                    class="container-column pannel start-justify center-align bg-se"
+                >
+                    <p class="big-text">Menu</p>
+                    <div class="container-column center w-80 h-80">
+                        <button class="btn">ADD</button>
+                        <button class="btn">DELETE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-row w-80 h-100 center">
+                <div
+                    class="container-column pannel bg-se center-align start-justify"
+                >
+                    <div class="container-column center w-100 h-20">
+                        <input
+                            class="search-bar"
+                            type="text"
+                            placeholder="Chercher..."
+                        />
+                    </div>
+                    <div class="container-column center w-100 h-80">
+                        <div class="container-column pannel bg-te center-align start-justify scroll">
+
+
+                            <div class="task">
+                                <div class="container-row w-100 h-100">
+                                    <div class="container-column w-70 h-100 center">
+                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
+                                            <p class="title">Task Title</p>
+                                        </div>
+                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
+                                            <p>Task Description</p>
+                                        </div>
+                                    </div>
+                                    <div class="container-column w-30 h-100 bg-te center rounded">
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Due Date</p>
+                                        </div>
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Importance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task">
+                                <div class="container-row w-100 h-100">
+                                    <div class="container-column w-70 h-100 center">
+                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
+                                            <p class="title">Task Title</p>
+                                        </div>
+                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
+                                            <p>Task Description</p>
+                                        </div>
+                                    </div>
+                                    <div class="container-column w-30 h-100 bg-te center rounded">
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Due Date</p>
+                                        </div>
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Importance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="task">
+                                <div class="container-row w-100 h-100">
+                                    <div class="container-column w-70 h-100 center">
+                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
+                                            <p class="title">Task Title</p>
+                                        </div>
+                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
+                                            <p>Task Description</p>
+                                        </div>
+                                    </div>
+                                    <div class="container-column w-30 h-100 bg-te center rounded">
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Due Date</p>
+                                        </div>
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Importance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task">
+                                <div class="container-row w-100 h-100">
+                                    <div class="container-column w-70 h-100 center">
+                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
+                                            <p class="title">Task Title</p>
+                                        </div>
+                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
+                                            <p>Task Description</p>
+                                        </div>
+                                    </div>
+                                    <div class="container-column w-30 h-100 bg-te center rounded">
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Due Date</p>
+                                        </div>
+                                        <div class="container-row w-90 h-50 center">
+                                            <p>Task Importance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
