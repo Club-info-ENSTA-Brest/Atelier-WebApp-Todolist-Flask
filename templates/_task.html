@@ -1,0 +1,31 @@
+<div class="task" id="task-{{ task.id }}">
+    <button
+        class="icon-btn task-delete-btn"
+        type="button"
+        hx-delete="/tasks/{{ task.id }}"
+        hx-target="#task-{{ task.id }}"
+        hx-swap="outerHTML"
+        aria-label="Supprimer la task {{ task.title }}"
+    >
+        🗑
+    </button>
+
+    <div class="container-row w-100 h-100">
+        <div class="container-column w-70 h-100 center">
+            <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
+                <p class="title">{{ task.title }}</p>
+            </div>
+            <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
+                <p>{{ task.description or "Pas de description" }}</p>
+            </div>
+        </div>
+        <div class="container-column w-30 h-100 bg-te center rounded">
+            <div class="container-row w-90 h-50 center">
+                <p>{{ task.due_date or "Pas de date" }}</p>
+            </div>
+            <div class="container-row w-90 h-50 center">
+                <p>{{ task.importance }}</p>
+            </div>
+        </div>
+    </div>
+</div>

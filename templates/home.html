@@ -15,123 +15,117 @@
         <div class="page-container-title">
             <p class="title">WebApp Todolist @ Club Info ENSTA Campus de Brest</p>
         </div>
+
         <div class="page-container">
             <div class="container-column center w-20 h-100">
-                <div
-                    class="container-column pannel start-justify center-align bg-se"
-                >
+                <div class="container-column pannel start-justify center-align bg-se">
                     <p class="big-text">Menu</p>
                     <div class="container-column center w-80 h-80">
-                        <button class="btn">ADD</button>
-                        <button class="btn">DELETE</button>
+                        <button class="btn" id="open-add-form">ADD</button>
+
+                        <p class="small-text menu-section-title">SORT</p>
+                        <button
+                            class="btn"
+                            hx-get="/sort?by=date"
+                            hx-target="#task-list"
+                            hx-swap="innerHTML"
+                        >
+                            BY DATE
+                        </button>
+                        <button
+                            class="btn"
+                            hx-get="/sort?by=importance"
+                            hx-target="#task-list"
+                            hx-swap="innerHTML"
+                        >
+                            BY IMPORTANCE
+                        </button>
+                        <button
+                            class="btn"
+                            hx-get="/sort?by=created_at"
+                            hx-target="#task-list"
+                            hx-swap="innerHTML"
+                        >
+                            BY CREATION
+                        </button>
                     </div>
                 </div>
             </div>
+
             <div class="container-row w-80 h-100 center">
-                <div
-                    class="container-column pannel bg-se center-align start-justify"
-                >
+                <div class="container-column pannel bg-se center-align start-justify">
                     <div class="container-column center w-100 h-20">
                         <input
                             class="search-bar"
-                            type="text"
+                            type="search"
+                            name="q"
                             placeholder="Chercher..."
+                            hx-get="/search"
+                            hx-trigger="input changed delay:200ms, search"
+                            hx-target="#task-list"
+                            hx-swap="innerHTML"
                         />
                     </div>
+
                     <div class="container-column center w-100 h-80">
-                        <div class="container-column pannel bg-te center-align start-justify scroll">
-
-
-                            <div class="task">
-                                <div class="container-row w-100 h-100">
-                                    <div class="container-column w-70 h-100 center">
-                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
-                                            <p class="title">Task Title</p>
-                                        </div>
-                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
-                                            <p>Task Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="container-column w-30 h-100 bg-te center rounded">
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Due Date</p>
-                                        </div>
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Importance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="task">
-                                <div class="container-row w-100 h-100">
-                                    <div class="container-column w-70 h-100 center">
-                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
-                                            <p class="title">Task Title</p>
-                                        </div>
-                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
-                                            <p>Task Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="container-column w-30 h-100 bg-te center rounded">
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Due Date</p>
-                                        </div>
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Importance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="task">
-                                <div class="container-row w-100 h-100">
-                                    <div class="container-column w-70 h-100 center">
-                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
-                                            <p class="title">Task Title</p>
-                                        </div>
-                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
-                                            <p>Task Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="container-column w-30 h-100 bg-te center rounded">
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Due Date</p>
-                                        </div>
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Importance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="task">
-                                <div class="container-row w-100 h-100">
-                                    <div class="container-column w-70 h-100 center">
-                                        <div class="container-row w-90 h-30 center-align start-justify bg-te rounded margin padding">
-                                            <p class="title">Task Title</p>
-                                        </div>
-                                        <div class="container-row w-90 h-60 center-align start-justify bg-te rounded padding">
-                                            <p>Task Description</p>
-                                        </div>
-                                    </div>
-                                    <div class="container-column w-30 h-100 bg-te center rounded">
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Due Date</p>
-                                        </div>
-                                        <div class="container-row w-90 h-50 center">
-                                            <p>Task Importance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
+                        <div class="container-column pannel bg-te center-align start-justify scroll" id="task-list">
+                            {% include "_tasks.html" %}
                         </div>
                     </div>
                 </div>
-                <script src="{{ url_for('static', filename='script.js') }}"></script>
+            </div>
+        </div>
+
+        <div class="overlay hidden" id="add-task-overlay">
+            <form
+                class="modal form-card"
+                id="add-task-form"
+                hx-post="/add"
+                hx-target="#task-list"
+                hx-swap="afterbegin"
+            >
+                <div class="container-row w-100 center-align center-justify">
+                    <div class="container-row w-80 center-align start-justify">
+                        <p class="title">Ajouter une task</p>
+                    </div>
+                    <div class="container-row w-20 center-align center-justify">
+                        <button class="btn btn-small" type="button" id="close-add-form">X</button>
+                    </div>
+                </div>
+
+
+                <label class="form-field">
+                    <span>Titre</span>
+                    <input class="input" name="title" type="text" placeholder="Ex: Finir le README" required />
+                </label>
+
+                <label class="form-field">
+                    <span>Description</span>
+                    <textarea class="input" name="description" placeholder="Quelques détails..."></textarea>
+                </label>
+
+                <div class="container-row w-100 center">
+                    <label class="form-field w-50">
+                        <span>Date limite</span>
+                        <input class="input" name="due_date" type="date" />
+                    </label>
+
+                    <label class="form-field w-50">
+                        <span>Importance</span>
+                        <select class="input" name="importance">
+                            <option value="low">Low</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </label>
+                </div>
+
+                <button class="btn" type="submit">Créer la task</button>
+                <p class="form-message" id="add-task-message"></p>
+            </form>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
     </body>
 </html>

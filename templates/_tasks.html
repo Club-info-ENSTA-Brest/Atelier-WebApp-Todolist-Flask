@@ -1,0 +1,5 @@
+{% for task in tasks %}
+    {% include "_task.html" %}
+{% else %}
+    <p class="empty-text">Aucune task ne correspond à cette recherche.</p>
+{% endfor %}
